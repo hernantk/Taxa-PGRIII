@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:view>
+    <h:form id="calculo">
+        Distância Percorrida: <br/>
+        <h:inputText id="Distancia" value="#{corridataxiBean.corridaTaxidto.distancia}" required="true" requiredMessage="Obrigatório" converter="javax.faces.Double" converterMessage="Distancia em Km"/>
+        <br/><h:message for="Distancia"/><br/>
+        <h:selectOneRadio id="Selecao" value="#{corridataxiBean.corridaTaxidto.bandeira}">
+            <f:selectItem  itemValue="1" itemLabel="Bandeira 1" />
+            <f:selectItem  itemValue="2" itemLabel="Bandeira 2"/>
+        </h:selectOneRadio> <br/>
+        <h:commandButton id="Calcular" value="Calcular" action="#{corridataxiBean.calcular}"/>
+
+        <h:commandButton id="Limpar" value="Limpar" action="#{corridataxiBean.limpar}">
+        </h:commandButton>
+
+    </h:form>
+    Valor a pagar :
+    <h:outputText  value="#{corridataxiBean.valor}">
+        <f:convertNumber type="currency"/>
+    </h:outputText>
+
+
+
+
+</f:view>
+</html>
